@@ -1,12 +1,26 @@
 <h3>Create a Purchase Order</h3>
 <div class="container">
   <form>
-    <div class='form-group'>
-      <div class='col-xs-6'>
+    <div class='form-group row'>
+      <div class='col-sm-8'>
           <label  for="orderId" >PO #</label>
-          <input type="string" class="form-control" id="orderId" placeholder="Enter a PO number"/>
+          <input type="string" class="form-control" id="orderId" placeholder="Enter a PO number" #orderId/>
+
+          <label for="vendor">Vendor</label>
+          <input type="string" class='form-control' id="vendor" placeholder="Enter the Vendor" #vendor />
+
+          <label for="amount">Amount</label>
+          <input type="number" class="form-control" id="amount" placeholder="Enter the total amount" #amount />
       </div>
     </div>
-    <button type='submit' class='btn btn-primary col-xs-12'>Submit</button>
+    <button type='submit' class='btn btn-primary col-xs-12'
+    (click)="onCreateOrder(orderId.value,
+                          vendor.value,
+                          amount.value,
+                          false,
+                          false,
+                          false)">
+      Create Purchase Order
+      </button>
   </form>
 </div>

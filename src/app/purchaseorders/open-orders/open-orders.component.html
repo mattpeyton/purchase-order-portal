@@ -1,3 +1,11 @@
-<p>
-  open-orders works!
-</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <app-pending-delivery
+        *ngFor="let order of orders"
+        [order]='order'></app-pending-delivery>
+    </div>
+  </div>
+</div>
+<app-order-received></app-order-received>
