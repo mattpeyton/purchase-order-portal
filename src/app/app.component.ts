@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { OrdersService } from './orders.service';
+import { Order } from './order.model';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Peyton\'s Barricade Purchase Order Portal';
+
+  constructor(ordersService: OrdersService){}
+
 
 }

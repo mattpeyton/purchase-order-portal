@@ -8,11 +8,18 @@ import { OrdersService } from '../../orders.service';
   styleUrls: ['./open-orders.component.css']
 })
 export class OpenOrdersComponent implements OnInit {
-  orders: Order[] = [];
-  constructor(private ordersService: OrdersService) { }
+  orders: Order[];
+  constructor(private ordersService: OrdersService) {}
 
   ngOnInit() {
-    this.orders = this.ordersService.orders;
+    this.orders = this.ordersService.getOrders();
+    this.ordersService.ordersChanged
+      .subscribe(
+        (orders: Order[]) => {
+          this.orders = orders;
+        }
+      )
+
   }
 
 }
